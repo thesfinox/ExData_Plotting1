@@ -20,12 +20,12 @@ data$Full.Date <- as.POSIXct(paste(data$Date, data$Time))
 
 # PLOT 2: Day of the week vs global active power (kW)
 ############################################################################
+png(file = "plot2.png", width = 480, height = 480)
 with(data, plot(Global_active_power ~ Full.Date,
                 type = "l",
                 ylab = "Global Active Power (kilowatts)",
                 xlab = ""
                )
     )
-dev.copy(png, file = "plot2.png", width = 480, height = 480)
 dev.off()
 

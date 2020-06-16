@@ -20,7 +20,8 @@ data$Full.Date <- as.POSIXct(paste(data$Date, data$Time))
 
 # PLOT 3: Day of the week vs sub metering
 ############################################################################
-with(data, {plot(Sub_metering_1 ~ Full.Date, type = "l", ylab = "Energy sub metering", xlab = "", cex = 0.7)
+png(file = "plot3.png", width = 480, height = 480)
+with(data, {plot(Sub_metering_1 ~ Full.Date, type = "l", ylab = "Energy sub metering", xlab = "")
             lines(Sub_metering_2 ~ Full.Date, col = "red")
             lines(Sub_metering_3 ~ Full.Date, col = "blue")
     }
@@ -29,11 +30,7 @@ legend("topright",
        col = c("black", "red", "blue"),
        lty = 1,
        lwd = 1,
-       pt.cex = 1,
-       cex = 0.7,
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-
-dev.copy(png, file = "plot3.png", width = 480, height = 480)
 dev.off()
 
 
